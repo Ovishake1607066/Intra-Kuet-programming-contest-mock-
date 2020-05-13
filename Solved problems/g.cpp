@@ -1,0 +1,76 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long fl,s;
+    string st,st1;
+    fl=0;
+    stack<string>sta;
+    while(cin>>st>>st1)
+    {
+        if(st=="call")
+        {
+            sta.push(st1);
+            if(st1=="a()")
+            {
+                s=s+1;
+            }
+            if(st1=="b()")
+            {
+                s=s+2;
+            }
+            if(st1=="c()")
+            {
+                s=s+3;
+            }
+            if(st1=="d()")
+            {
+                s=s+4;
+            }
+            if(st1=="e()")
+            {
+                s=s+5;
+            }
+            if(st1=="main()")
+            {
+                s=s+3;
+            }
+        }
+        else
+        {
+            if(st1=="a()")
+            {
+                s=s-1;
+            }
+            if(st1=="b()")
+            {
+                s=s-2;
+            }
+            if(st1=="c()")
+            {
+                s=s-3;
+            }
+            if(st1=="d()")
+            {
+                s=s-4;
+            }
+            if(st1=="e()")
+            {
+                s=s-5;
+            }
+            if(st1=="main()")
+            {
+                s=s-3;
+            }
+            sta.pop();
+        }
+        if(s>=100)
+            fl=1;
+        if(sta.empty())
+            break;
+    }
+    if(fl==1)
+        cout<<"stack overflow"<<endl;
+    else
+        cout<<"success"<<endl;
+}
